@@ -16,14 +16,11 @@ namespace netcore3_ObjectDisposedException {
                 ThreadExceptionEventArgs ea = null;
                 Application.ThreadException += (s, e) => ea = e;
                 Form form = new Form { Size = new Size(500, 400), };
-
                 form.Show();
-                form.Refresh();
-                form.Show(); // second call to actually show form work in debug mode
+                form.Show(); // second call to actually show form in debug mode
 
                 var control = new TextBox { Size = new Size(200, 200) };
                 form.Controls.Add(control);
-                control.Dock = DockStyle.Fill;
                 control.Focus();
                 Assert.IsTrue(control.Focused);
                 control.LostFocus += (s, e) => {
@@ -31,7 +28,6 @@ namespace netcore3_ObjectDisposedException {
                     control = null;
                 };
                 form.Focus();
-                Assert.IsTrue(form.Focused);
 
                 if(ea != null)
                     Assert.Fail(ea.Exception.StackTrace);
