@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/netcore3_ObjectDisposedException
+/netcore3_ObjectDisposedException/obj
+/netcore3_ObjectDisposedException/bin/Debug/netcoreapp3.0
